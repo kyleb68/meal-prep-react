@@ -13,6 +13,29 @@ class IngredientInput extends Component {
           <Form.Label>Quantity</Form.Label>
           <Form.Control type="number" required={true} />
         </Form.Group>
+        <Form.Group controlID="formRecipeIngredientMeasurement">
+          <Form.Label>Units</Form.Label>
+          <Form.Control as="select" defaultValue="select one">
+            <option>tsp.</option>
+            <option>tbsp.</option>
+            <option>fluid ounce</option>
+            <option>cup</option>
+            <option>pint</option>
+            <option>quart</option>
+            <option>gallon</option>
+            <option>ml</option>
+            <option>liter</option>
+            <option>pound(s)</option>
+            <option>ounce</option>
+            <option>mg</option>
+            <option>g</option>
+            <option>kg</option>
+            <option>mm</option>
+            <option>cm</option>
+            <option>m</option>
+            <option>inch</option>
+          </Form.Control>
+        </Form.Group>
         <Form.Group controlID="formRecipeIngredientDescription">
           <Form.Label>Description</Form.Label>
           <Form.Control type="text" />
