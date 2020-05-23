@@ -1,0 +1,44 @@
+{
+  "recipes": [
+    {
+      "id": 0,
+      "title": "Shrimp Scampi",
+      "description": "Delicious.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3
+    },
+    {
+      "id": 1,
+      "title": "Chicken Parm",
+      "description": "Chicken parm you taste so good.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3
+    },
+    {
+      "id": 2,
+      "title": "Buffalo Chicken Dip",
+      "description": "Tasty and spicy.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3
+    },
+    {
+      "title": "test2",
+      "description": "test2",
+      "id": 3,
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "id": 4,
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3
+    }
+  ]
+}
