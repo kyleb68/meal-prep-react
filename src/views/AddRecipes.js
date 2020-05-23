@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import IngredientInput from "../components/IngredientInput";
 import axios from "axios";
 
 class AddRecipes extends Component {
@@ -16,8 +17,6 @@ class AddRecipes extends Component {
 
   render() {
     const setRecipeProperties = (event) => {
-      //this.state.recipe.setState({ title: event.target[0].value });
-      //this.state.recipe.setState({ description: event.target[1].value });
       axios({
         method: "post",
         url: "http://localhost:3000/recipes",
@@ -59,6 +58,7 @@ class AddRecipes extends Component {
             <Form.Label>Amount of Servings Made</Form.Label>
             <Form.Control type="number" />
           </Form.Group>
+          <IngredientInput />
           <Button type="submit">Add Recipe</Button>
         </Form>
       </Container>
