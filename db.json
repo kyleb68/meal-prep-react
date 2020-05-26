@@ -6,7 +6,23 @@
       "description": "Delicious.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3
+      "servingAmount": 3,
+      "ingredients": [
+        {
+          "ingredientId": 0,
+          "name": "linguine",
+          "quantity": 1,
+          "unit": "pound(s)",
+          "description": ""
+        },
+        {
+          "ingredientId": 1,
+          "name": "shrimp",
+          "quantity": 10,
+          "unit": "ounces",
+          "description": "peeled and deveined"
+        }
+      ]
     },
     {
       "id": 1,
@@ -14,7 +30,8 @@
       "description": "Chicken parm you taste so good.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3
+      "servingAmount": 3,
+      "ingredients": []
     },
     {
       "id": 2,
@@ -22,7 +39,8 @@
       "description": "Tasty and spicy.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3
+      "servingAmount": 3,
+      "ingredients": []
     },
     {
       "title": "test2",
@@ -30,7 +48,8 @@
       "id": 3,
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3
+      "servingAmount": 3,
+      "ingredients": []
     },
     {
       "title": "test",
@@ -38,7 +57,8 @@
       "id": 4,
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3
+      "servingAmount": 3,
+      "ingredients": []
     }
   ]
 }

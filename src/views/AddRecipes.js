@@ -11,33 +11,50 @@ class AddRecipes extends Component {
       recipe: {
         title: "",
         description: "",
+        prepTime: 0,
+        cookTime: 0,
+        servingAmount: 0,
       },
+      ingredients: [],
     };
   }
-
-  render() {
-    const setRecipeProperties = (event) => {
-      axios({
-        method: "post",
-        url: "http://localhost:3000/recipes",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          title: event.target[0].value,
-          description: event.target[1].value,
-        },
+  setRecipeProperties = (event) => {
+    axios({
+      method: "post",
+      url: "http://localhost:3000/recipes",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        /* title: event.target[0].value,
+        description: event.target[1].value,
+        prepTime: event.target[2].value,
+        cookTime: event.target[3].value,
+        servingAmount: event.target[4].value, */
+        recipe: event.target,
+      },
+    })
+      .then((resp) => {
+        console.log(resp.data);
       })
-        .then((resp) => {
-          console.log(resp);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  addIngredient = (event) => {
+    this.setState((prevState) => ({
+      ingredients: [
+        ...prevState.ingredients,
+        { name: "", quantity: 0, unit: "", description: "" },
+      ],
+    }));
+  };
+  render() {
     return (
       <Container>
-        <Form onSubmit={setRecipeProperties}>
+        <Form onSubmit={this.setRecipeProperties}>
+          <Button type="submit">Submit Recipe</Button>
           <Form.Group controlId="formRecipeTitle">
             <Form.Label>Recipe Name</Form.Label>
             <Form.Control type="text" required={true} />
@@ -58,8 +75,8 @@ class AddRecipes extends Component {
             <Form.Label>Amount of Servings Made</Form.Label>
             <Form.Control type="number" />
           </Form.Group>
-          <IngredientInput />
-          <Button type="submit">Add Recipe</Button>
+          <Button onClick={this.addIngredient}>Add Another Ingredient</Button>
+          <IngredientInput ingredients={this.state.ingredients} />
         </Form>
       </Container>
     );
