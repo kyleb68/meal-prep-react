@@ -4,7 +4,8 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import Home from "./Home";
 import Recipes from "./Recipes";
-import AddRecipes from "./AddRecipes";
+import AddRecipes from "./RecipeInputViews/AddRecipes";
+import IngredientInputView from "./RecipeInputViews/IngredientInputView";
 
 class Main extends Component {
   render() {
@@ -33,6 +34,7 @@ class Main extends Component {
           <Route exact path="/Home" component={Home} />
           <Route path="/Recipes" component={Recipes} />
           <Route path="/AddRecipes" component={AddRecipes} />
+          <Route path="/ingredient-input" component={IngredientInputView} />
         </div>
       </HashRouter>
     );

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import IngredientInput from "../components/IngredientInput";
+import { Container, Form, Button, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import IngredientInputView from "./IngredientInputView";
+//import IngredientInput from "../../components/IngredientInput";
 import axios from "axios";
 
 class AddRecipes extends Component {
@@ -92,6 +94,7 @@ class AddRecipes extends Component {
             <Form.Label>Description</Form.Label>
             <Form.Control
               type="text"
+              as="textarea"
               required={true}
               value={this.state.description}
               onChange={this.handleDescriptionChange}
@@ -123,6 +126,7 @@ class AddRecipes extends Component {
           </Form.Group>
           {/* <IngredientInput ingredients={this.state.ingredients} /> */}
           <Button onClick={this.addIngredientInput}>Add Ingredient</Button>
+          <Link to="/ingredient-input">Test</Link>
         </Form>
       </Container>
     );
