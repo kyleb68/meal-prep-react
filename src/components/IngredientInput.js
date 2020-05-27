@@ -10,7 +10,6 @@ class IngredientInput extends Component {
 
   render() {
     return this.props.ingredients.map((ingredient, index) => {
-      let ingredientId = `ingredient-${index}`;
       return (
         <Form.Row>
           <Form.Group controlID="formRecipeIngredientName">
@@ -23,7 +22,7 @@ class IngredientInput extends Component {
           </Form.Group>
           <Form.Group controlID="formRecipeIngredientMeasurement">
             <Form.Label>Units</Form.Label>
-            <Form.Control as="select" defaultValue="select one">
+            <Form.Control as="select" defaultValue="select one" required={true}>
               <option>tsp.</option>
               <option>tbsp.</option>
               <option>fluid ounce</option>

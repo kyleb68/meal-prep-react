@@ -8,17 +8,24 @@ class AddRecipes extends Component {
     super(props);
 
     this.state = {
-      recipe: {
-        title: "",
-        description: "",
-        prepTime: 0,
-        cookTime: 0,
-        servingAmount: 0,
-      },
+      title: "",
+      description: "",
+      prepTime: 0,
+      cookTime: 0,
+      servingAmount: 0,
       ingredients: [],
     };
+
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleCookChange = this.handleCookChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handlePrepChange = this.handlePrepChange.bind(this);
+    this.handleServingChange = this.handleServingChange.bind(this);
   }
   setRecipeProperties = (event) => {
+    event.preventDefault();
+    const recipe = this.state;
+
     axios({
       method: "post",
       url: "http://localhost:3000/recipes",
@@ -26,12 +33,7 @@ class AddRecipes extends Component {
         "Content-Type": "application/json",
       },
       data: {
-        /* title: event.target[0].value,
-        description: event.target[1].value,
-        prepTime: event.target[2].value,
-        cookTime: event.target[3].value,
-        servingAmount: event.target[4].value, */
-        recipe: event.target,
+        recipe,
       },
     })
       .then((resp) => {
@@ -42,7 +44,29 @@ class AddRecipes extends Component {
       });
   };
 
-  addIngredient = (event) => {
+  writeRecipe = (recipe) => {};
+
+  handleTitleChange = (event) => {
+    this.setState({ title: event.target.value });
+  };
+
+  handleDescriptionChange = (event) => {
+    this.setState({ description: event.target.value });
+  };
+
+  handlePrepChange = (event) => {
+    this.setState({ prepTime: event.target.value });
+  };
+
+  handleCookChange = (event) => {
+    this.setState({ cookTime: event.target.value });
+  };
+
+  handleServingChange = (event) => {
+    this.setState({ servingAmount: event.target.value });
+  };
+
+  addIngredientInput = () => {
     this.setState((prevState) => ({
       ingredients: [
         ...prevState.ingredients,
@@ -57,26 +81,48 @@ class AddRecipes extends Component {
           <Button type="submit">Submit Recipe</Button>
           <Form.Group controlId="formRecipeTitle">
             <Form.Label>Recipe Name</Form.Label>
-            <Form.Control type="text" required={true} />
+            <Form.Control
+              type="text"
+              required={true}
+              value={this.state.title}
+              onChange={this.handleTitleChange}
+            />
           </Form.Group>
           <Form.Group controlId="formRecipeDescription">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="text" required={true} />
+            <Form.Control
+              type="text"
+              required={true}
+              value={this.state.description}
+              onChange={this.handleDescriptionChange}
+            />
           </Form.Group>
           <Form.Group controlId="formRecipePrepTime">
             <Form.Label>Prep Time in Minutes</Form.Label>
-            <Form.Control type="number" />
+            <Form.Control
+              type="number"
+              value={this.state.prepTime}
+              onChange={this.handlePrepChange}
+            />
           </Form.Group>
           <Form.Group controlId="formRecipeCookTime">
             <Form.Label>Cook Time in Minutes</Form.Label>
-            <Form.Control type="number" />
+            <Form.Control
+              type="number"
+              value={this.state.cookTime}
+              onChange={this.handleCookChange}
+            />
           </Form.Group>
           <Form.Group controlId="formRecipeServings">
             <Form.Label>Amount of Servings Made</Form.Label>
-            <Form.Control type="number" />
+            <Form.Control
+              type="number"
+              value={this.state.servingAmount}
+              onChange={this.handleServingChange}
+            />
           </Form.Group>
-          <Button onClick={this.addIngredient}>Add Another Ingredient</Button>
-          <IngredientInput ingredients={this.state.ingredients} />
+          {/* <IngredientInput ingredients={this.state.ingredients} /> */}
+          <Button onClick={this.addIngredientInput}>Add Ingredient</Button>
         </Form>
       </Container>
     );
