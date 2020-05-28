@@ -9,7 +9,7 @@ class IngredientInputView extends Component {
   }
 
   componentDidMount = () => {
-    console.log("Test");
+    console.log(this.props.location.state);
   };
 
   render() {

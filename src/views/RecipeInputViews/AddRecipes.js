@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Container, Form, Button, Nav, Navbar } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import IngredientInputView from "./IngredientInputView";
-//import IngredientInput from "../../components/IngredientInput";
-import axios from "axios";
 
 class AddRecipes extends Component {
   constructor(props) {
@@ -24,29 +21,6 @@ class AddRecipes extends Component {
     this.handlePrepChange = this.handlePrepChange.bind(this);
     this.handleServingChange = this.handleServingChange.bind(this);
   }
-  setRecipeProperties = (event) => {
-    event.preventDefault();
-    const recipe = this.state;
-
-    axios({
-      method: "post",
-      url: "http://localhost:3000/recipes",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        recipe,
-      },
-    })
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  writeRecipe = (recipe) => {};
 
   handleTitleChange = (event) => {
     this.setState({ title: event.target.value });
@@ -79,8 +53,7 @@ class AddRecipes extends Component {
   render() {
     return (
       <Container>
-        <Form onSubmit={this.setRecipeProperties}>
-          <Button type="submit">Submit Recipe</Button>
+        <Form>
           <Form.Group controlId="formRecipeTitle">
             <Form.Label>Recipe Name</Form.Label>
             <Form.Control
@@ -124,9 +97,14 @@ class AddRecipes extends Component {
               onChange={this.handleServingChange}
             />
           </Form.Group>
-          {/* <IngredientInput ingredients={this.state.ingredients} /> */}
-          <Button onClick={this.addIngredientInput}>Add Ingredient</Button>
-          <Link to="/ingredient-input">Test</Link>
+          <Link
+            to={{
+              pathname: "/ingredient-input",
+              state: { recipe: this.state },
+            }}
+          >
+            <Button>Next Step: Ingredients</Button>
+          </Link>
         </Form>
       </Container>
     );
