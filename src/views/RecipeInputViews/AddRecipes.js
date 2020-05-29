@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Col, Row, Form } from "react-bootstrap";
-import RecipeDetailList from "../../components/RecipeDetailList/RecipeDetailList";
+import RecipeDetailList from "../../components/RecipeDetailList/RecipeDetails";
 
 const AddRecipes = () => {
   const [recipe, setRecipe] = useState({
@@ -38,7 +38,7 @@ const AddRecipes = () => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Prep Time:</Form.Label>
+              <Form.Label>Prep Time (in minutes):</Form.Label>
               <Form.Control
                 type="number"
                 value={recipe.prepTime}
@@ -48,7 +48,7 @@ const AddRecipes = () => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Cook Time:</Form.Label>
+              <Form.Label>Cook Time (in minutes):</Form.Label>
               <Form.Control
                 type="number"
                 value={recipe.cookTime}
@@ -70,7 +70,7 @@ const AddRecipes = () => {
           </Form>
         </Col>
         <Col>
-          <h2>Recipe Details:</h2>
+          <h2>Recipe:</h2>
           <RecipeDetailList recipe={recipe} />
         </Col>
       </Row>
