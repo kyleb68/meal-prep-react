@@ -1,114 +1,81 @@
-import React, { Component } from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Container, Col, Row, Form } from "react-bootstrap";
+import RecipeDetailList from "../../components/RecipeDetailList/RecipeDetailList";
 
-class AddRecipes extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: "",
-      description: "",
-      prepTime: 0,
-      cookTime: 0,
-      servingAmount: 0,
-      ingredients: [],
-    };
-
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleCookChange = this.handleCookChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handlePrepChange = this.handlePrepChange.bind(this);
-    this.handleServingChange = this.handleServingChange.bind(this);
-  }
-
-  handleTitleChange = (event) => {
-    this.setState({ title: event.target.value });
-  };
-
-  handleDescriptionChange = (event) => {
-    this.setState({ description: event.target.value });
-  };
-
-  handlePrepChange = (event) => {
-    this.setState({ prepTime: event.target.value });
-  };
-
-  handleCookChange = (event) => {
-    this.setState({ cookTime: event.target.value });
-  };
-
-  handleServingChange = (event) => {
-    this.setState({ servingAmount: event.target.value });
-  };
-
-  addIngredientInput = () => {
-    this.setState((prevState) => ({
-      ingredients: [
-        ...prevState.ingredients,
-        { name: "", quantity: 0, unit: "", description: "" },
-      ],
-    }));
-  };
-  render() {
-    return (
-      <Container>
-        <Form>
-          <Form.Group controlId="formRecipeTitle">
-            <Form.Label>Recipe Name</Form.Label>
-            <Form.Control
-              type="text"
-              required={true}
-              value={this.state.title}
-              onChange={this.handleTitleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formRecipeDescription">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              type="text"
-              as="textarea"
-              required={true}
-              value={this.state.description}
-              onChange={this.handleDescriptionChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formRecipePrepTime">
-            <Form.Label>Prep Time in Minutes</Form.Label>
-            <Form.Control
-              type="number"
-              value={this.state.prepTime}
-              onChange={this.handlePrepChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formRecipeCookTime">
-            <Form.Label>Cook Time in Minutes</Form.Label>
-            <Form.Control
-              type="number"
-              value={this.state.cookTime}
-              onChange={this.handleCookChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formRecipeServings">
-            <Form.Label>Amount of Servings Made</Form.Label>
-            <Form.Control
-              type="number"
-              value={this.state.servingAmount}
-              onChange={this.handleServingChange}
-            />
-          </Form.Group>
-          <Link
-            to={{
-              pathname: "/ingredient-input",
-              state: { recipe: this.state },
-            }}
-          >
-            <Button>Next Step: Ingredients</Button>
-          </Link>
-        </Form>
-      </Container>
-    );
-  }
-}
+const AddRecipes = () => {
+  const [recipe, setRecipe] = useState({
+    title: "",
+    description: "",
+    prepTime: 0,
+    cookTime: 0,
+    servingAmount: 0,
+  });
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h2>Recipe Input:</h2>
+          <Form>
+            <Form.Group>
+              <Form.Label>Recipe Name:</Form.Label>
+              <Form.Control
+                type="text"
+                value={recipe.title}
+                onChange={(e) =>
+                  setRecipe({ ...recipe, title: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                type="text"
+                as="textarea"
+                value={recipe.description}
+                onChange={(e) =>
+                  setRecipe({ ...recipe, description: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Prep Time:</Form.Label>
+              <Form.Control
+                type="number"
+                value={recipe.prepTime}
+                onChange={(e) =>
+                  setRecipe({ ...recipe, prepTime: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Cook Time:</Form.Label>
+              <Form.Control
+                type="number"
+                value={recipe.cookTime}
+                onChange={(e) =>
+                  setRecipe({ ...recipe, cookTime: e.target.value })
+                }
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Serving Amount:</Form.Label>
+              <Form.Control
+                type="number"
+                value={recipe.servingAmount}
+                onChange={(e) =>
+                  setRecipe({ ...recipe, servingAmount: e.target.value })
+                }
+              />
+            </Form.Group>
+          </Form>
+        </Col>
+        <Col>
+          <h2>Recipe Details:</h2>
+          <RecipeDetailList recipe={recipe} />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 export default AddRecipes;

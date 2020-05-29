@@ -6,6 +6,7 @@ import Home from "./Home";
 import Recipes from "./Recipes";
 import AddRecipes from "./RecipeInputViews/AddRecipes";
 import IngredientInputView from "./RecipeInputViews/IngredientInputView";
+import InstructionInputView from "./RecipeInputViews/InstructionInputView";
 
 class Main extends Component {
   render() {
@@ -35,6 +36,7 @@ class Main extends Component {
           <Route path="/Recipes" component={Recipes} />
           <Route path="/AddRecipes" component={AddRecipes} />
           <Route path="/ingredient-input" component={IngredientInputView} />
+          <Route path="/instruction-input" component={InstructionInputView} />
         </div>
       </HashRouter>
     );
