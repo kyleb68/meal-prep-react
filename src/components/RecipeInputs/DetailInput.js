@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Col, Row, Form } from "react-bootstrap";
+import React from "react";
+import { Form } from "react-bootstrap";
 
 const DetailInput = (props) => {
   return (
@@ -8,9 +8,12 @@ const DetailInput = (props) => {
         <Form.Label>Recipe Name:</Form.Label>
         <Form.Control
           type="text"
-          value={props.recipe.title}
+          value={props.recipeDetails.title}
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, title: e.target.value })
+            props.setRecipeDetails({
+              ...props.recipeDetails,
+              title: e.target.value,
+            })
           }
         />
       </Form.Group>
@@ -19,9 +22,12 @@ const DetailInput = (props) => {
         <Form.Control
           type="text"
           as="textarea"
-          value={props.recipe.description}
+          value={props.recipeDetails.description}
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, description: e.target.value })
+            props.setRecipeDetails({
+              ...props.recipeDetails,
+              description: e.target.value,
+            })
           }
         />
       </Form.Group>
@@ -29,10 +35,13 @@ const DetailInput = (props) => {
         <Form.Label>Prep Time (in minutes):</Form.Label>
         <Form.Control
           type="number"
-          value={props.recipe.prepTime}
+          value={props.recipeDetails.prepTime}
           defaultValue=""
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, prepTime: e.target.value })
+            props.setRecipeDetails({
+              ...props.recipeDetails,
+              prepTime: e.target.value,
+            })
           }
         />
       </Form.Group>
@@ -40,10 +49,13 @@ const DetailInput = (props) => {
         <Form.Label>Cook Time (in minutes):</Form.Label>
         <Form.Control
           type="number"
-          value={props.recipe.cookTime}
+          value={props.recipeDetails.cookTime}
           defaultValue=""
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, cookTime: e.target.value })
+            props.setRecipe({
+              ...props.recipeDetails,
+              cookTime: e.target.value,
+            })
           }
         />
       </Form.Group>
@@ -51,10 +63,13 @@ const DetailInput = (props) => {
         <Form.Label>Serving Amount:</Form.Label>
         <Form.Control
           type="number"
-          value={props.recipe.servingAmount}
+          value={props.recipeDetails.servingAmount}
           defaultValue=""
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, servingAmount: e.target.value })
+            props.setRecipe({
+              ...props.recipeDetails,
+              servingAmount: e.target.value,
+            })
           }
         />
       </Form.Group>
@@ -62,10 +77,13 @@ const DetailInput = (props) => {
         <Form.Label>Serving Amount:</Form.Label>
         <Form.Control
           type="number"
-          value={props.recipe.servingAmount}
+          value={props.recipeDetails.servingAmount}
           defaultValue=""
           onChange={(e) =>
-            props.setRecipe({ ...props.recipe, servingAmount: e.target.value })
+            props.setRecipeDetails({
+              ...props.recipeDetails,
+              servingAmount: e.target.value,
+            })
           }
         />
       </Form.Group>

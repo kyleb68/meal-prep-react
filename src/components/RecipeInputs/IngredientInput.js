@@ -1,49 +1,60 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 
 const IngredientInput = (props) => {
-  return props.ingredients.map((value, index) => {
-    let ingredientNameId = `ingredient-name-${index}`,
-      ingredientQuantityId = `ingredient-quantity-${index}`,
-      ingredientUnitId = `ingredient-units-${index}`,
-      ingredientDescId = `ingredient-description-${index}`;
-    return (
-      <Form.Row key={index}>
+  const [ingredient, setIngredient] = useState({
+    name: "",
+    quantity: 0,
+    units: "",
+    description: "",
+  });
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
+  const handleClick = () => {
+    props.setRecipeIngredients(props.recipeIngredients.concat(ingredient));
+  };
+
+  return (
+    <form onSubmit={submitHandler}>
+      <Form.Row>
         <Form.Group>
-          <Form.Label>Ingredient Name</Form.Label>
+          <Form.Label>Ingredient Name:</Form.Label>
           <Form.Control
-            name={ingredientNameId}
-            data-id={index}
-            id="name"
             type="text"
-            value={props.ingredients[index].name}
-            className="name"
+            value={ingredient.name}
             required={true}
+            onChange={(e) =>
+              setIngredient({
+                ...ingredient,
+                name: e.target.value,
+              })
+            }
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Quantity</Form.Label>
+          <Form.Label>Quantiy:</Form.Label>
           <Form.Control
-            name={ingredientQuantityId}
-            data-id={index}
-            id="quantity"
             type="number"
-            value={props.ingredients[index].quantity}
-            className="quantity"
+            value={ingredient.quantity}
             required={true}
+            onChange={(e) =>
+              setIngredient({ ...ingredient, quantity: e.target.value })
+            }
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Units</Form.Label>
+          <Form.Label>Units:</Form.Label>
           <Form.Control
-            name={ingredientUnitId}
-            data-id={index}
-            id="unit"
             type="text"
-            value={props.ingredients[index].unit}
-            className="unit"
+            value={props.recipeIngredients.unit}
             as="select"
             required={true}
+            onChange={(e) =>
+              setIngredient({ ...ingredient, units: e.target.value })
+            }
           >
             <option>tsp.</option>
             <option>tbsp.</option>
@@ -66,19 +77,21 @@ const IngredientInput = (props) => {
           </Form.Control>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Description:</Form.Label>
           <Form.Control
-            name={ingredientDescId}
-            data-id={index}
-            id="description"
             type="text"
-            value={props.ingredients[index].description}
-            className="description"
+            value={props.recipeIngredients.description}
+            onChange={(e) =>
+              setIngredient({ ...ingredient, description: e.target.value })
+            }
           />
         </Form.Group>
+        <Button variant="primary" type="submit" onClick={handleClick}>
+          Add Ingredient
+        </Button>
       </Form.Row>
-    );
-  });
+    </form>
+  );
 };
 
 export default IngredientInput;
