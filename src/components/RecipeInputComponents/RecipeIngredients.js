@@ -3,9 +3,9 @@ import { ListGroup } from "react-bootstrap";
 
 const RecipeIngredients = (props) => {
   let recipeIngredients = props.recipeIngredients;
-  
-  const listItems = recipeIngredients.map((ingredient) => (
-    <ListGroup.Item>
+
+  const listItems = recipeIngredients.map((ingredient, id) => (
+    <ListGroup.Item key={id}>
       {ingredient.quantity} {ingredient.units} {ingredient.name}{" "}
       {ingredient.description}
     </ListGroup.Item>

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const DirectionInput = (props) => {
-  const [direction, setDirection] = useState("");
+  const [index, setIndex] = useState(props.recipeDirections.length);
+  const [direction, setDirection] = useState({ id: null, text: "" });
 
   const submitHandler = (e) => {
     e.preventDefault();
   };
-  const handleClick = (e) => {
+  const handleClick = () => {
+    setIndex(index + 1);
+    setDirection({ ...direction, id: index });
     props.setRecipeDirections(props.recipeDirections.concat(direction));
   };
 
@@ -19,7 +22,9 @@ const DirectionInput = (props) => {
           <Form.Control
             type="text"
             as="textarea"
-            onChange={(e) => setDirection(e.target.value)}
+            onChange={(e) =>
+              setDirection({ ...direction, text: e.target.value })
+            }
           />
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleClick}>

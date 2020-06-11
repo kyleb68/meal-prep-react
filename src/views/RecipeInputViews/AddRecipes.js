@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Col, Row, Form } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import RecipeDetailList from "../../components/RecipeInputComponents/RecipeDetails";
 import DetailInput from "../../components/RecipeInputComponents/DetailInput";
 import IngredientInput from "../../components/RecipeInputComponents/IngredientInput";
@@ -15,7 +15,7 @@ const AddRecipes = () => {
     cookTime: 0,
     servingAmount: 0,
   });
-  const [recipeIngredients, setRecipeIngredients] = useState([{}]);
+  const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeDirections, setRecipeDirections] = useState([]);
   return (
     <Container>

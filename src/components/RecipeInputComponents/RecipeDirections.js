@@ -3,8 +3,8 @@ import { ListGroup } from "react-bootstrap";
 
 const RecipeDirections = (props) => {
   let recipeDirections = props.recipeDirections;
-  const listItems = recipeDirections.map((direction) => (
-    <ListGroup.Item>{direction}</ListGroup.Item>
+  const listItems = recipeDirections.map((direction, id) => (
+    <ListGroup.Item key={id}>{direction.text}</ListGroup.Item>
   ));
 
   return (
