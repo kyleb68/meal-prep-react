@@ -13,14 +13,7 @@ const AddRecipes = () => {
     cookTime: 0,
     servingAmount: 0,
   });
-  const [recipeIngredients, setRecipeIngredients] = useState([
-    {
-      name: "",
-      quantity: 0,
-      units: "",
-      description: "",
-    },
-  ]);
+  const [recipeIngredients, setRecipeIngredients] = useState([{}]);
   return (
     <Container>
       <Row>

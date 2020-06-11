@@ -52,7 +52,7 @@ const DetailInput = (props) => {
           value={props.recipeDetails.cookTime}
           defaultValue=""
           onChange={(e) =>
-            props.setRecipe({
+            props.setRecipeDetails({
               ...props.recipeDetails,
               cookTime: e.target.value,
             })

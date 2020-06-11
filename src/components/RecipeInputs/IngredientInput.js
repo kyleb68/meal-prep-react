@@ -14,6 +14,7 @@ const IngredientInput = (props) => {
   };
 
   const handleClick = () => {
+    console.log(ingredient);
     props.setRecipeIngredients(props.recipeIngredients.concat(ingredient));
   };
 
@@ -49,7 +50,7 @@ const IngredientInput = (props) => {
           <Form.Label>Units:</Form.Label>
           <Form.Control
             type="text"
-            value={props.recipeIngredients.unit}
+            value={props.recipeIngredients.units}
             as="select"
             required={true}
             onChange={(e) =>
