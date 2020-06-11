@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ListGroup, Container, Button, Form } from "react-bootstrap";
-import IngredientInput from "../../components/RecipeInputs/IngredientInput";
+import IngredientInput from "../../components/RecipeInputComponents/IngredientInput";
 import { Link } from "react-router-dom";
 
 class IngredientInputView extends Component {

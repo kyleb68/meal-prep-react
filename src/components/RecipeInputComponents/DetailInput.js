@@ -36,7 +36,6 @@ const DetailInput = (props) => {
         <Form.Control
           type="number"
           value={props.recipeDetails.prepTime}
-          defaultValue=""
           onChange={(e) =>
             props.setRecipeDetails({
               ...props.recipeDetails,
@@ -50,7 +49,6 @@ const DetailInput = (props) => {
         <Form.Control
           type="number"
           value={props.recipeDetails.cookTime}
-          defaultValue=""
           onChange={(e) =>
             props.setRecipeDetails({
               ...props.recipeDetails,
@@ -64,7 +62,6 @@ const DetailInput = (props) => {
         <Form.Control
           type="number"
           value={props.recipeDetails.servingAmount}
-          defaultValue=""
           onChange={(e) =>
             props.setRecipe({
               ...props.recipeDetails,
@@ -78,7 +75,6 @@ const DetailInput = (props) => {
         <Form.Control
           type="number"
           value={props.recipeDetails.servingAmount}
-          defaultValue=""
           onChange={(e) =>
             props.setRecipeDetails({
               ...props.recipeDetails,
