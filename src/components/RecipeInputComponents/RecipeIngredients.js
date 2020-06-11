@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { ListGroup } from "react-bootstrap";
 
 const RecipeIngredients = (props) => {
   let recipeIngredients = props.recipeIngredients;
-  console.log(recipeIngredients);
+  
   const listItems = recipeIngredients.map((ingredient) => (
     <ListGroup.Item>
       {ingredient.quantity} {ingredient.units} {ingredient.name}{" "}
