@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const IngredientInput = (props) => {
-  const [index, setIndex] = useState(props.recipeIngredients.length);
   const [ingredient, setIngredient] = useState({
-    id: null,
     name: "",
     quantity: 0,
     units: "",
@@ -16,8 +14,6 @@ const IngredientInput = (props) => {
   };
 
   const handleClick = () => {
-    setIndex(index + 1);
-    setIngredient({ ...ingredient, id: index });
     props.setRecipeIngredients(props.recipeIngredients.concat(ingredient));
   };
 

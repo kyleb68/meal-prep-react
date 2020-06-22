@@ -1,20 +1,39 @@
-import React from "react";
-import { ListGroup } from "react-bootstrap";
+import React, { useState } from "react";
+import { ListGroup, Button } from "react-bootstrap";
 
 const RecipeIngredients = (props) => {
-  let recipeIngredients = props.recipeIngredients;
+  const handleDeleteClick = (index) => {
+    props.setRecipeIngredients(
+      props.recipeIngredients.filter(
+        (item) => props.recipeIngredients.indexOf(item) !== index
+      )
+    );
+  };
 
-  const listItems = recipeIngredients.map((ingredient, id) => (
-    <ListGroup.Item key={id}>
-      {ingredient.quantity} {ingredient.units} {ingredient.name}{" "}
-      {ingredient.description}
-    </ListGroup.Item>
-  ));
+  const checkIngredients = () => {
+    console.log(props.recipeIngredients);
+  };
 
   return (
     <div>
       <h5>Ingredients:</h5>
-      <ListGroup>{listItems}</ListGroup>
+      <button onClick={checkIngredients}>check</button>
+      <ListGroup>
+        {props.recipeIngredients.map((ingredient) => (
+          <ListGroup.Item key={props.recipeIngredients.indexOf(ingredient)}>
+            {ingredient.quantity} {ingredient.units} {ingredient.name}{" "}
+            {ingredient.description}
+            <Button
+              variant="danger"
+              onClick={handleDeleteClick(
+                props.recipeIngredients.indexOf(ingredient)
+              )}
+            >
+              TestButton
+            </Button>
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
     </div>
   );
 };
