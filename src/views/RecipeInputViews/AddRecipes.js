@@ -20,8 +20,9 @@ const AddRecipes = () => {
   const recipeService = new RecipeService();
 
   const createRecipe = () => {
-    recipeService._createNew();
+    recipeService.createNew(recipeDetails);
   };
+
   return (
     <Container>
       <Row>

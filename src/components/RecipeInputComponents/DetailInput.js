@@ -63,19 +63,6 @@ const DetailInput = (props) => {
           type="number"
           value={props.recipeDetails.servingAmount}
           onChange={(e) =>
-            props.setRecipe({
-              ...props.recipeDetails,
-              servingAmount: e.target.value,
-            })
-          }
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Serving Amount:</Form.Label>
-        <Form.Control
-          type="number"
-          value={props.recipeDetails.servingAmount}
-          onChange={(e) =>
             props.setRecipeDetails({
               ...props.recipeDetails,
               servingAmount: e.target.value,

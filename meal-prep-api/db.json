@@ -6,23 +6,7 @@
       "description": "Delicious.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3,
-      "ingredients": [
-        {
-          "ingredientId": 0,
-          "name": "linguine",
-          "quantity": 1,
-          "unit": "pound(s)",
-          "description": ""
-        },
-        {
-          "ingredientId": 1,
-          "name": "shrimp",
-          "quantity": 10,
-          "unit": "ounces",
-          "description": "peeled and deveined"
-        }
-      ]
+      "servingAmount": 3
     },
     {
       "id": 1,
@@ -30,8 +14,7 @@
       "description": "Chicken parm you taste so good.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3,
-      "ingredients": []
+      "servingAmount": 3
     },
     {
       "id": 2,
@@ -39,8 +22,7 @@
       "description": "Tasty and spicy.",
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3,
-      "ingredients": []
+      "servingAmount": 3
     },
     {
       "title": "test2",
@@ -48,8 +30,7 @@
       "id": 3,
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3,
-      "ingredients": []
+      "servingAmount": 3
     },
     {
       "title": "test",
@@ -57,8 +38,7 @@
       "id": 4,
       "prepTime": 30,
       "cookTime": 40,
-      "servingAmount": 3,
-      "ingredients": []
+      "servingAmount": 3
     },
     {
       "title": "Chicken Parm",
@@ -66,8 +46,41 @@
       "prepTime": 30,
       "cookTime": 40,
       "servingAmount": 3,
-      "ingredients": [],
       "id": 5
+    },
+    {
+      "title": "Chicken Parm",
+      "description": "Chicken parm you taste so good.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3,
+      "id": 6
+    },
+    {
+      "title": "Chicken Parm",
+      "description": "Chicken parm you taste so good.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3,
+      "id": 7
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "recipeId": 0,
+      "name": "linguine",
+      "quantity": 1,
+      "unit": "pound(s)",
+      "description": ""
+    },
+    {
+      "id": 1,
+      "recipeId": 0,
+      "name": "shrimp",
+      "quantity": 10,
+      "unit": "ounces",
+      "description": "peeled and deveined"
     }
   ]
 }
