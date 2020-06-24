@@ -8,28 +8,26 @@ export default class RecipeService extends RestService {
     super("recipes");
   }
 
-  createNew(data) {
+  async createNew(data) {
     this.#endpointUrl = this.getEndpoint();
-    console.log(this.#endpointUrl);
-    axios({
-      method: "POST",
-      url: `${this.#endpointUrl}`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
+    let id;
+    await axios
+      .post(`${this.#endpointUrl}`, {
         title: data.title,
         description: data.description,
         prepTime: data.prepTime,
         cookTime: data.cookTime,
         servingAmount: data.servingAmount,
-      },
-    })
+        ingredients: data.ingredients,
+        directions: data.directions,
+      })
       .then((response) => {
-        return response.data;
+        console.log(response.data.id);
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error);
       });
+
+    console.log(id);
   }
 }

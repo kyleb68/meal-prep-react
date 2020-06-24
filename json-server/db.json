@@ -1,0 +1,68 @@
+{
+  "recipes": [
+    {
+      "id": 0,
+      "title": "Shrimp Scampi",
+      "description": "Delicious.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3,
+      "ingredients": [
+        {
+          "id": 0,
+          "name": "linguine",
+          "quantity": 1,
+          "unit": "pound(s)",
+          "description": ""
+        },
+        {
+          "id": 1,
+          "name": "shrimp",
+          "quantity": 10,
+          "unit": "ounces",
+          "description": "peeled and deveined"
+        }
+      ],
+      "directions": [
+        {
+          "text": "Start boiling water in a medium sized pot."
+        },
+        {
+          "text": "Slice the shrimp in half and throw into a hot pan with oil. Season with salt and pepper."
+        }
+      ]
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "prepTime": "5",
+      "cookTime": "5",
+      "servingAmount": "5",
+      "ingredients": [
+        {
+          "name": "test",
+          "quantity": "5",
+          "units": "mg",
+          "description": "test"
+        },
+        {
+          "name": "test",
+          "quantity": "5",
+          "units": "mg",
+          "description": "test"
+        }
+      ],
+      "directions": [
+        {
+          "id": null,
+          "text": "test"
+        },
+        {
+          "id": 0,
+          "text": "test"
+        }
+      ],
+      "id": 1
+    }
+  ]
+}

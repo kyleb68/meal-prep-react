@@ -20,7 +20,17 @@ const AddRecipes = () => {
   const recipeService = new RecipeService();
 
   const createRecipe = () => {
-    recipeService.createNew(recipeDetails);
+    const recipe = {
+      title: recipeDetails.title,
+      description: recipeDetails.description,
+      prepTime: recipeDetails.prepTime,
+      cookTime: recipeDetails.cookTime,
+      servingAmount: recipeDetails.servingAmount,
+      ingredients: recipeIngredients,
+      directions: recipeDirections,
+    };
+
+    recipeService.createNew(recipe);
   };
 
   return (
