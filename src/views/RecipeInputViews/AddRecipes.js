@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Col, Row, ListGroup, Button } from "react-bootstrap";
+import { Container, Col, Row, ListGroup, Button, Alert } from "react-bootstrap";
 import RecipeDetailList from "../../components/RecipeInputComponents/RecipeDetails";
 import DetailInput from "../../components/RecipeInputComponents/DetailInput";
 import IngredientInput from "../../components/RecipeInputComponents/IngredientInput";
@@ -16,6 +16,7 @@ const AddRecipes = () => {
   });
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeDirections, setRecipeDirections] = useState([]);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const recipeService = new RecipeService();
 
@@ -29,12 +30,19 @@ const AddRecipes = () => {
       ingredients: recipeIngredients,
       directions: recipeDirections,
     };
-
+    setIsSuccess(true);
     recipeService.createNew(recipe);
   };
 
   return (
     <Container>
+      <div className="d-flex justify-content-center">
+        {isSuccess && (
+          <Alert className=".center" variant="success">
+            Recipe Added.
+          </Alert>
+        )}
+      </div>
       <Row>
         <Col>
           <h2>Recipe Input:</h2>
@@ -73,7 +81,9 @@ const AddRecipes = () => {
           </ListGroup>
         </Col>
       </Row>
-      <Button onClick={createRecipe}>Submit</Button>
+      <div className="d-flex justify-content-center">
+        <Button onClick={createRecipe}>Submit</Button>
+      </div>
     </Container>
   );
 };

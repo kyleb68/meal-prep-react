@@ -31,38 +31,6 @@
           "text": "Slice the shrimp in half and throw into a hot pan with oil. Season with salt and pepper."
         }
       ]
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "prepTime": "5",
-      "cookTime": "5",
-      "servingAmount": "5",
-      "ingredients": [
-        {
-          "name": "test",
-          "quantity": "5",
-          "units": "mg",
-          "description": "test"
-        },
-        {
-          "name": "test",
-          "quantity": "5",
-          "units": "mg",
-          "description": "test"
-        }
-      ],
-      "directions": [
-        {
-          "id": null,
-          "text": "test"
-        },
-        {
-          "id": 0,
-          "text": "test"
-        }
-      ],
-      "id": 1
     }
   ]
 }
