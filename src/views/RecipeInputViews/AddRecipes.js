@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Container, Col, Row, ListGroup, Button, Alert } from "react-bootstrap";
+import { Container, Col, Row, ListGroup, Button } from "react-bootstrap";
 import RecipeDetailList from "../../components/RecipeInputComponents/RecipeDetails";
 import DetailInput from "../../components/RecipeInputComponents/DetailInput";
 import IngredientInput from "../../components/RecipeInputComponents/IngredientInput";
 import DirectionInput from "../../components/RecipeInputComponents/DirectionInput";
 import RecipeService from "../../services/RecipeService";
+import { Link } from "react-router-dom";
 
 const AddRecipes = () => {
   const [recipeDetails, setRecipeDetails] = useState({
@@ -16,7 +17,6 @@ const AddRecipes = () => {
   });
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [recipeDirections, setRecipeDirections] = useState([]);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const recipeService = new RecipeService();
 
@@ -30,19 +30,11 @@ const AddRecipes = () => {
       ingredients: recipeIngredients,
       directions: recipeDirections,
     };
-    setIsSuccess(true);
     recipeService.createNew(recipe);
   };
 
   return (
     <Container>
-      <div className="d-flex justify-content-center">
-        {isSuccess && (
-          <Alert className=".center" variant="success">
-            Recipe Added.
-          </Alert>
-        )}
-      </div>
       <Row>
         <Col>
           <h2>Recipe Input:</h2>
@@ -82,7 +74,9 @@ const AddRecipes = () => {
         </Col>
       </Row>
       <div className="d-flex justify-content-center">
-        <Button onClick={createRecipe}>Submit</Button>
+        <Link to="/Recipes">
+          <Button onClick={createRecipe}>Submit</Button>
+        </Link>
       </div>
     </Container>
   );
