@@ -13,45 +13,32 @@ const RecipeDetailsView = ({ match }) => {
   } = match;
 
   const [recipe, setRecipe] = useState({});
-  const [ingredients, setIngredients] = useState({});
-  const [directions, setDirections] = useState({});
   useEffect(() => {
     const recipeService = new RecipeService();
-    const ingredientService = new IngredientService();
-    const directionService = new DirectionService();
 
     async function getRecipe() {
       setRecipe(await recipeService.getAllIncluding(recipeId));
     }
-
-    async function getIngredients() {
-      setIngredients(
-        await ingredientService.getAllIncluding(`?recipeId=${recipeId}`)
-      );
-    }
-
-    async function getDirections() {
-      setDirections(
-        await directionService.getAllIncluding(`?recipeId=${recipeId}`)
-      );
-    }
     getRecipe();
-    getIngredients();
-    getDirections();
   }, [recipeId]);
+
+  function isEmpty(obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) return false;
+    }
+    return true;
+  }
 
   return (
     <Container>
-      <RecipeDetailsList recipeDetails={recipe} />
-      {ingredients.length ? (
-        <RecipeIngredientsList recipeIngredients={ingredients} />
+      {!isEmpty(recipe) ? (
+        <Container>
+          <RecipeDetailsList recipeDetails={recipe} />
+          <RecipeIngredientsList recipeIngredients={recipe.ingredients} />
+          <RecipeDirectionsList recipeDirections={recipe.directions} />
+        </Container>
       ) : (
-        "Loading ingredients..."
-      )}
-      {directions.length ? (
-        <RecipeDirectionsList recipeDirections={directions} />
-      ) : (
-        "Loading directions..."
+        "Loading recipe..."
       )}
     </Container>
   );
