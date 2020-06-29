@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeListItem = (props) => {
   return (
@@ -6,9 +7,9 @@ const RecipeListItem = (props) => {
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">{props.description}</p>
-        <a href="/#" className="card-link">
+        <Link to={`/recipe-details/${props.id}`}>
           Learn how to make {props.name}!
-        </a>
+        </Link>
       </div>
     </div>
   );

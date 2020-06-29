@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ListGroup } from "react-bootstrap";
 
 const RecipeDetaiList = (props) => {
   let recipeDetails = props.recipeDetails;
+
   return (
     <div>
       <h5>Details:</h5>

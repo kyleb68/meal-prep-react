@@ -22,7 +22,11 @@ class RecipeList extends Component {
       <ListGroup horizontal>
         {this.state.recipes.map((item) => (
           <ListGroup.Item key={item.id}>
-            <RecipeListItem name={item.title} description={item.description} />
+            <RecipeListItem
+              name={item.title}
+              description={item.description}
+              id={item.id}
+            />
           </ListGroup.Item>
         ))}
       </ListGroup>

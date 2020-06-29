@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Col, Row, ListGroup, Button } from "react-bootstrap";
-import RecipeDetailList from "../../components/RecipeInputComponents/RecipeDetails";
+import RecipeDetailList from "../../components/RecipeDetailListComponents/RecipeDetailsList";
 import DetailInput from "../../components/RecipeInputComponents/DetailInput";
 import IngredientInput from "../../components/RecipeInputComponents/IngredientInput";
 import DirectionInput from "../../components/RecipeInputComponents/DirectionInput";

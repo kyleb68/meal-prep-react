@@ -22,15 +22,45 @@
           "unit": "ounces",
           "description": "peeled and deveined"
         }
-      ],
-      "directions": [
-        {
-          "text": "Start boiling water in a medium sized pot."
-        },
-        {
-          "text": "Slice the shrimp in half and throw into a hot pan with oil. Season with salt and pepper."
-        }
       ]
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "recipeId": 0,
+      "name": "linguine",
+      "quantity": 1,
+      "unit": "pound(s)",
+      "description": ""
+    },
+    {
+      "id": 1,
+      "recipeId": 0,
+      "name": "shrimp",
+      "quantity": 10,
+      "unit": "ounces",
+      "description": "peeled and deveined"
+    },
+    {
+      "title": "Chicken Parm",
+      "description": "Chicken parm you taste so good.",
+      "prepTime": 30,
+      "cookTime": 40,
+      "servingAmount": 3,
+      "id": 2
+    }
+  ],
+  "directions": [
+    {
+      "id": 0,
+      "recipeId": 0,
+      "text": "Start boiling water in a medium sized pot."
+    },
+    {
+      "id": 1,
+      "recipeId": 0,
+      "text": "Slice the shrimp in half and throw into a hot pan with oil. Season with salt and pepper."
     }
   ]
 }

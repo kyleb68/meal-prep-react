@@ -5,6 +5,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import Home from "./views/Home";
 import Recipes from "./views/Recipes";
 import AddRecipes from "./views/RecipeInputViews/AddRecipes";
+import RecipeDetailsView from "./views/RecipeDetailsView";
 
 class App extends Component {
   render() {
@@ -17,22 +18,26 @@ class App extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link as={NavLink} to="/Home">
+              <Nav.Link as={NavLink} to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/Recipes">
+              <Nav.Link as={NavLink} to="/recipes">
                 Recipes
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/AddRecipes">
+              <Nav.Link as={NavLink} to="/add-recipes">
                 Add a Recipe
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
         <div className="content">
-          <Route exact path="/Home" component={Home} />
-          <Route path="/Recipes" component={Recipes} />
-          <Route path="/AddRecipes" component={AddRecipes} />
+          <Route exact path="/home" component={Home} />
+          <Route path="/recipes" component={Recipes} />
+          <Route path="/add-recipes" component={AddRecipes} />
+          <Route
+            path="/recipe-details/:recipeId"
+            component={RecipeDetailsView}
+          />
         </div>
       </HashRouter>
     );
