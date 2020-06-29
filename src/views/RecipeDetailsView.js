@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import RecipeService from "../services/RecipeService";
-import IngredientService from "../services/IngredientService";
-import DirectionService from "../services/DirectionService";
 import RecipeDetailsList from "../components/RecipeDetailListComponents/RecipeDetailsList";
 import RecipeIngredientsList from "../components/RecipeDetailListComponents/RecipeIngredientsList";
 import RecipeDirectionsList from "../components/RecipeDetailListComponents/RecipeDirectionsList";

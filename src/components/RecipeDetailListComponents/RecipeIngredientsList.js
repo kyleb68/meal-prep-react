@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { ListGroup, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { ListGroup } from "react-bootstrap";
 
 const RecipeIngredientsList = (props) => {
-  const [ingredients, setIngredients] = useState(props.recipeIngredients);
+  const [ingredients] = useState(props.recipeIngredients);
 
   return (
     <div>
