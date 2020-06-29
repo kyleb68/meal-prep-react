@@ -20,12 +20,12 @@ const RecipeDetailsView = ({ match }) => {
     getRecipe();
   }, [recipeId]);
 
-  function isEmpty(obj) {
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) return false;
+  const isEmpty = (object) => {
+    for (var key in object) {
+      if (object.hasOwnProperty(key)) return false;
     }
     return true;
-  }
+  };
 
   return (
     <Container>

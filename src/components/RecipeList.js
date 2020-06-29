@@ -1,37 +1,33 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import RecipeService from "../services/RecipeService";
 import { ListGroup } from "react-bootstrap";
 import RecipeListItem from "./RecipeListitem";
-import RecipeService from "../services/RecipeService";
 
-class RecipeList extends Component {
-  constructor(props) {
-    super(props);
+const RecipeList = (props) => {
+  const [recipes, setRecipes] = useState([]);
 
-    this.state = {
-      recipes: [],
-    };
-  }
-
-  async componentDidMount() {
+  useEffect(() => {
     const recipeService = new RecipeService();
-    this.setState({ recipes: await recipeService.getAllIncluding() });
-  }
+    async function getRecipes() {
+      setRecipes(await recipeService.getAllIncluding());
+    }
 
-  render() {
-    return (
-      <ListGroup horizontal>
-        {this.state.recipes.map((item) => (
-          <ListGroup.Item key={item.id}>
-            <RecipeListItem
-              name={item.title}
-              description={item.description}
-              id={item.id}
-            />
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-    );
-  }
-}
+    getRecipes();
+  });
+
+  return (
+    <ListGroup horizontal>
+      {recipes.map((item) => (
+        <ListGroup.Item key={item.id}>
+          <RecipeListItem
+            name={item.title}
+            description={item.description}
+            id={item.id}
+          />
+        </ListGroup.Item>
+      ))}
+    </ListGroup>
+  );
+};
 
 export default RecipeList;

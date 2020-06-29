@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { ListGroup } from "react-bootstrap";
 
 const RecipeDirections = (props) => {
-  let recipeDirections = props.recipeDirections;
-  const listItems = recipeDirections.map((direction, id) => (
+  const [directions] = useState(props.recipeDirections);
+
+  const listItems = directions.map((direction, id) => (
     <ListGroup.Item key={id}>{direction.text}</ListGroup.Item>
   ));
 
