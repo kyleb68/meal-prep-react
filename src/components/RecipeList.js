@@ -6,14 +6,14 @@ import RecipeListItem from "./RecipeListitem";
 const RecipeList = (props) => {
   const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
+  const fetchRecipes = async () => {
     const recipeService = new RecipeService();
-    async function getRecipes() {
-      setRecipes(await recipeService.getAllIncluding());
-    }
+    setRecipes(await recipeService.getAllIncluding());
+  };
 
-    getRecipes();
-  });
+  useEffect(() => {
+    fetchRecipes();
+  }, []);
 
   return (
     <ListGroup horizontal>

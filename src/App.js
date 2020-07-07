@@ -12,15 +12,12 @@ class App extends Component {
     return (
       <HashRouter>
         <Navbar bg="dark" variant="dark" expand="sm">
-          <Navbar.Brand as={NavLink} to="/">
-            React Demo App
+          <Navbar.Brand as={NavLink} to="/home">
+            Meal Planner
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link as={NavLink} to="/home">
-                Home
-              </Nav.Link>
               <Nav.Link as={NavLink} to="/recipes">
                 Recipes
               </Nav.Link>

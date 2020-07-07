@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import RecipeService from "../services/RecipeService";
-import RecipeDetailsList from "../components/RecipeDetailListComponents/RecipeDetailsList";
-import RecipeIngredientsList from "../components/RecipeDetailListComponents/RecipeIngredientsList";
-import RecipeDirectionsList from "../components/RecipeDetailListComponents/RecipeDirectionsList";
+import RecipeDetailsList from "../components/RecipeListComponents/RecipeDetailsList";
+import RecipeIngredientsList from "../components/RecipeListComponents/RecipeIngredientsList";
+import RecipeDirectionsList from "../components/RecipeListComponents/RecipeDirectionsList";
 
 const RecipeDetailsView = ({ match }) => {
   const {
@@ -11,15 +11,16 @@ const RecipeDetailsView = ({ match }) => {
   } = match;
 
   const [recipe, setRecipe] = useState({});
-  useEffect(() => {
-    const recipeService = new RecipeService();
 
-    async function getRecipe() {
-      setRecipe(await recipeService.getAllIncluding(recipeId));
-    }
-    getRecipe();
+  const fetchRecipe = async () => {
+    const recipeService = new RecipeService();
+    setRecipe(await recipeService.getAllIncluding(recipeId));
+  };
+  useEffect(() => {
+    fetchRecipe(recipeId);
   }, [recipeId]);
 
+  //checks recipe for conditional rendering
   const isEmpty = (object) => {
     for (var key in object) {
       if (object.hasOwnProperty(key)) return false;
